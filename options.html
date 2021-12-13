@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="spectre.min.css">
+    <script defer src="option.js"></script>
+    <title>Shortify</title>
+    <style>
+        .btn {
+            margin-top: 0.8rem !important;
+            border-radius: 5px !important;
+            background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6) !important;
+            transition: all 10s !important;
+            outline: none;
+            border: none !important;
+            width: 100% !important;
+        }
+        .toast {
+            border-radius: 5px !important;
+        }
+        .toast-success {
+            background: linear-gradient(to right, #dce35b, #45b649) !important;   
+            color: black;
+            outline: none;
+            border: none !important;
+        }
+        .toast-error {
+            background: linear-gradient(to right, #f2994a, #f2c94c) !important;   
+            color: black;
+            outline: none;
+            border: none !important;
+        }
+        .form-input {   
+            background-color: #d6d6d6 !important;   
+            border-radius: 5px !important;      
+            outline: none;
+        }
+        .card-title {
+            color: white !important;
+        }
+        .card-subtitle {
+            color: #c9c9c9 !important;
+        }
+        .card {
+            font-family: 'Poppins', sans-serif;
+            background-color: #142F43 !important;
+            border: none !important;
+            border-radius: 0px !important;
+        }
+        .loader  {
+            animation: rotate 1s infinite;  
+            height: 50px;
+            width: 50px;
+        }
+        .loader:before,
+        .loader:after {   
+            border-radius: 50%;
+            content: '';
+            display: block;
+            height: 20px;  
+            width: 20px;
+        }
+        .loader:before {
+            animation: ball1 1s infinite;  
+            background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
+            box-shadow: 30px 0 0 linear-gradient(to right, #f2994a, #f2c94c);
+            margin-bottom: 10px;
+        }
+        .loader:after {
+            animation: ball2 1s infinite; 
+            background-color: #00a096;
+            box-shadow: 30px 0 0 linear-gradient(to right, #dce35b, #45b649);
+        }
+        @keyframes rotate {
+            0% { 
+                -webkit-transform: rotate(0deg) scale(0.8); 
+                -moz-transform: rotate(0deg) scale(0.8);
+            }
+            50% { 
+                -webkit-transform: rotate(360deg) scale(1.2); 
+                -moz-transform: rotate(360deg) scale(1.2);
+            }
+            100% { 
+                -webkit-transform: rotate(720deg) scale(0.8); 
+                -moz-transform: rotate(720deg) scale(0.8);
+            }
+        }
+        @keyframes ball1 {
+            0% {
+                box-shadow: 30px 0 0 #f8b334;
+            }
+            50% {
+                box-shadow: 0 0 0 #f8b334;
+                margin-bottom: 0;
+                -webkit-transform: translate(15px,15px);
+                -moz-transform: translate(15px, 15px);
+            }
+            100% {
+                box-shadow: 30px 0 0 #f8b334;
+                margin-bottom: 10px;
+            }
+        }
+        @keyframes ball2 {
+            0% {
+                box-shadow: 30px 0 0 #97bf0d;
+            }
+            50% {
+                box-shadow: 0 0 0 #97bf0d;
+                margin-top: -20px;
+                -webkit-transform: translate(15px,15px);
+                -moz-transform: translate(15px, 15px);
+            }
+            100% {
+                box-shadow: 30px 0 0 #97bf0d;
+                margin-top: 0;
+            }
+        }
+        .card-footer {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+        <div class="card-header">
+            <div class="toast toast-error d-hide">
+                Please enter valid API
+            </div>
+            <div class="card-subtitle text-gray">Enter API key</div>
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+                <input class="form-input" type="password" id="myapi">
+            </div>
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-primary" id="save">Save</button>
+            <div class="toast toast-success d-hide">Saved!</div>
+        </div>
+    </div>
+
+</body>
+
+</html>
